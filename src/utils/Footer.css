@@ -1,0 +1,41 @@
+@media (min-height: 320px) {
+  .ui.footer.form-page {
+    /* Increased specificity for SO snippet priority */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+  }
+  .footer > div > span {
+    color: #f2075e;
+  }
+
+  .footer > div > i {
+    transition: 0.3s;
+  }
+
+  .footer > div > i:hover {
+    color: lightpink;
+  }
+}
+
+.footer > .ui.container {
+  margin: 20px 0;
+}
+
+.ui.footer.form-page .menu {
+  margin-top: 10px;
+}
+
+.ui.footer.form-page .menu .item,
+a {
+  display: inline;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.ui.footer.form-page .menu .item,
+a:hover {
+  margin: 0 5px;
+  color: #f2075e;
+}

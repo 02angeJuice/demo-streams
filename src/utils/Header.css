@@ -1,0 +1,11 @@
+.ui.animated.button {
+  background-color: inherit;
+}
+
+.ui.animated.button > div > span {
+  color: #f2075e;
+}
+
+.ui.menu .item {
+  margin: 0;
+}
