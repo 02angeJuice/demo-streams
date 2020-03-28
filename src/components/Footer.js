@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="ui inverted vertical footer segment form-page">
       <div className="ui container">
         <i className="big github alternate icon"></i>
-        &nbsp;Streams <span>Mango</span> by bannditCode &copy;
+        &nbsp;Demo Streams <span>Mango</span> Concept by bannditCode &copy;
         <div className="menu">
           <div className="item">
             <a href="/#">Home</a>

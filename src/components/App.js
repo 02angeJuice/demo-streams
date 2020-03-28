@@ -14,7 +14,7 @@ const App = () => {
     <div>
       <div className="ui container">
         <Header />
-        <div>
+        <div style={{ paddingTop: 80 }}>
           <Switch>
             <Route path="/" exact component={StreamList} />
             <Route path="/streams/new" exact component={StreamCreate} />
