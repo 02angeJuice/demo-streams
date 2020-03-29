@@ -11,10 +11,13 @@ import StreamShow from './streams/StreamShow';
 
 const App = () => {
   return (
-    <div>
+    <>
       <div className="ui container">
         <Header />
-        <div style={{ paddingTop: 80 }}>
+        <div
+          className="main-content"
+          style={{ paddingTop: 120, paddingBottom: 80 }}
+        >
           <Switch>
             <Route path="/" exact component={StreamList} />
             <Route path="/streams/new" exact component={StreamCreate} />
@@ -26,7 +29,7 @@ const App = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

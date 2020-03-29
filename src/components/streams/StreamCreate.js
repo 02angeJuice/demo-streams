@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class StreamCreate extends Component {
   renderError = ({ error, touched }) => {
@@ -24,25 +27,35 @@ class StreamCreate extends Component {
   };
 
   onSubmit = formValues => {
-    console.log(formValues);
+    this.props.createStream(formValues);
   };
 
   render() {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form error"
-        style={{ maxWidth: '70%', margin: '0 auto' }}
-      >
-        <Field name="title" component={this.renderInput} label="Enter Title" />
-        <Field
-          name="description"
-          component={this.renderInput}
-          label="Enter Description"
-        />
+      <>
+        <h2 style={{ paddingLeft: '70px' }}>Create Stream</h2>
+        <form
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
+          className="ui form error"
+          style={{ maxWidth: '70%', margin: '0 auto' }}
+        >
+          <Field
+            name="title"
+            component={this.renderInput}
+            label="Enter Title"
+          />
+          <Field
+            name="description"
+            component={this.renderInput}
+            label="Enter Description"
+          />
 
-        <button className="ui button inverted green">Create</button>
-      </form>
+          <button className="ui button inverted green">Create</button>
+          <Link className="ui button inverted blue right floated" to="/">
+            Back
+          </Link>
+        </form>
+      </>
     );
   }
 }
@@ -61,7 +74,9 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate
 })(StreamCreate);
+
+export default connect(null, { createStream })(formWrapped);

@@ -10,7 +10,7 @@ const Header = () => {
       <Link to="/" className="item">
         <img src="https://i.imgur.com/xP3dzNn.png" alt="" />
       </Link>
-      <NavLink className="blue item is-active" to="/streams/new">
+      <NavLink className="blue item is-active" to="/">
         Streamy
       </NavLink>
       <div className="right menu">
