@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends Component {
-  state = { user: undefined };
   componentDidMount() {
     window.gapi.load('client:auth2', () => {
       window.gapi.client
@@ -47,30 +46,30 @@ class GoogleAuth extends Component {
     if (this.props.isSignedIn === null) {
       return null;
     } else if (this.props.isSignedIn) {
-      if (this.state.user) {
-        return (
-          <div className="ui simple dropdown item">
-            <img src={this.state.user.getImageUrl()} alt="" />
-            &nbsp;&nbsp;&nbsp;
-            <span className="text">{this.state.user.getName()}</span>
-            <i className="dropdown icon"></i>
-            <div className="menu">
-              <div className="item">
-                <i className="edit outline icon"></i>
-                Your Profile
-              </div>
-              <div className="item">
-                <i className="question circle outline icon"></i>
-                Help
-              </div>
-              <div onClick={this.onSignOutClick} className="item">
-                <i className="sign-out alternate icon"></i>
-                Sign Out
-              </div>
+      const user = this.auth.currentUser.get().getBasicProfile();
+
+      return (
+        <div className="ui simple dropdown item">
+          <img src={user.getImageUrl()} alt="" />
+          &nbsp;&nbsp;&nbsp;
+          <span className="text">{user.getName()}</span>
+          <i className="dropdown icon"></i>
+          <div className="menu">
+            <div className="item">
+              <i className="edit outline icon"></i>
+              Your Profile
+            </div>
+            <div className="item">
+              <i className="question circle outline icon"></i>
+              Help
+            </div>
+            <div onClick={this.onSignOutClick} className="item">
+              <i className="sign-out alternate icon"></i>
+              Sign Out
             </div>
           </div>
-        );
-      }
+        </div>
+      );
     } else {
       return (
         <div className="item">

@@ -9,10 +9,6 @@ class StreamList extends Component {
     this.props.fetchStreams();
   }
 
-  onClicked = id => {
-    console.log('clicked', id);
-  };
-
   renderAdmin = stream => {
     if (stream.userId === this.props.currentUserId) {
       return (
@@ -37,15 +33,13 @@ class StreamList extends Component {
   renderList = () => {
     return this.props.streams.map(stream => {
       return (
-        <div
-          onClick={() => this.onClicked(stream.id)}
-          className="item"
-          key={stream.id}
-        >
+        <div className="item" key={stream.id}>
           {this.renderAdmin(stream)}
           <i className="large middle aligned icon camera"></i>
           <div className="content">
-            {stream.title}
+            <Link to={`/streams/${stream.id}`} className="header">
+              {stream.title}
+            </Link>
             <div className="description">{stream.description}</div>
           </div>
         </div>

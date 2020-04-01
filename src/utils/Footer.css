@@ -41,15 +41,15 @@ body {
   margin-top: 10px;
 }
 
-.ui.footer.form-page .menu .item,
-a {
+.ui.footer.form-page .menu > .item,
+.menu > .item > a {
   display: inline;
   margin: 0 5px;
   color: #fff;
 }
 
-.ui.footer.form-page .menu .item,
-a:hover {
+.ui.footer.form-page .menu > .item,
+.menu > .item > a:hover {
   margin: 0 5px;
   color: #f2075e;
 }
